@@ -16,8 +16,7 @@ const page = () => {
         <Hero />
       </section>
       <main className="px-4 sm:px-6 lg:px-8">
-        {/* Add vertical padding around each component for consistent spacing */}
-
+       
         <section className="py-12 sm:py-16">
           <About />
         </section>
@@ -31,8 +30,8 @@ const page = () => {
           <InstagramMarquee />
         </section>
       </main>
-        <FAQsThree />
-        <Footer />
+      <FAQsThree />
+      <Footer />
     </div>
   );
 };

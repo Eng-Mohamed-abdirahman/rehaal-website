@@ -3,9 +3,8 @@
 import React, { useEffect, useState } from "react";
 import Image, { type StaticImageData } from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { Button } from "@/components/ui/button";
 import {
-  ArrowRight,
+  
   Sparkles,
   Globe,
   Heart,
@@ -26,7 +25,6 @@ type Slide = {
   title: string;
   subtitle: string;
   buttonText: string;
-  buttonAction: () => void;
 };
 
 const slides: Slide[] = [
@@ -37,10 +35,7 @@ const slides: Slide[] = [
     title: "A Journey of Faith and Peace",
     subtitle:
       "Experience Umrah and Hajj with expert guidance and spiritual comfort. A journey that renews your soul.",
-    buttonText: "Explore Our Packages",
-    buttonAction: () =>
-      document.getElementById("packages")?.scrollIntoView({ behavior: "smooth" }),
-  },
+    buttonText: "Explore Our Packages",},
   {
     id: 2,
     image: heroImage2,
@@ -48,8 +43,6 @@ const slides: Slide[] = [
     title: "Sacred Moments in Madinah",
     subtitle: "Visit the Prophet's Mosque and feel the serenity of the blessed city of Madinah.",
     buttonText: "Discover Madinah",
-    buttonAction: () =>
-      document.getElementById("destinations")?.scrollIntoView({ behavior: "smooth" }),
   },
   {
     id: 3,
@@ -59,9 +52,7 @@ const slides: Slide[] = [
     subtitle:
       "Discover sacred landmarks and travel with comfort, clarity and care at every step.",
     buttonText: "Learn More",
-    buttonAction: () =>
-      document.getElementById("about")?.scrollIntoView({ behavior: "smooth" }),
-  },
+  }
 ];
 
 const SLIDE_SECONDS = 6;
@@ -142,26 +133,7 @@ export default function Hero() {
               {slide.subtitle}
             </p>
 
-            <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
-              <Button
-                onClick={slide.buttonAction}
-                size="lg"
-                className="px-8 py-6 text-base bg-[color:var(--gold)] text-[color:var(--ivory)] hover:opacity-90 shadow-lg"
-              >
-                {slide.buttonText}
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="px-8 py-6 text-base border-white/60 text-white hover:bg-white hover:text-black"
-                onClick={() =>
-                  document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })
-                }
-              >
-                Contact us
-              </Button>
-            </div>
+            
 
             {/* Trust indicators */}
             <div className="mt-10 flex flex-wrap items-center justify-center gap-8 text-white/90">
