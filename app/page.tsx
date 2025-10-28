@@ -15,7 +15,7 @@ const page = () => {
       <section>
         <Hero />
       </section>
-      <main className="px-4 sm:px-6 lg:px-8">
+      <main className="">
        
         <section className="py-12 sm:py-16">
           <About />

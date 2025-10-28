@@ -1,123 +1,90 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
-
-type NavItem = {
-  label: string;
-  href: string;
-};
-
-const navItems: NavItem[] = [
-  { label: "Home", href: "/" },
-  { label: "About", href: "#about" },
-  { label: "Services", href: "#services" },
-  { label: "Contact", href: "#contact" },
-];
+import { useEffect, useRef, useState } from "react";
 
 export default function Navigation() {
-  const pathname = usePathname() || "/";
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const navRef = useRef<HTMLDivElement | null>(null);
 
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
+
+  // Compute scroll states on client only
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+    const onScroll = () => {
+      const y = window.scrollY;
+      const h = document.documentElement;
+      const max = Math.max(1, h.scrollHeight - window.innerHeight);
+      setIsScrolled(y > 24);
+      setScrollProgress(Math.min(1, y / max));
     };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
   }, []);
 
-  // Ensure isScrolled affects the header style so it is "used"
+  const smoothTo = (hash: string) => {
+    const id = hash.replace(/^#/, "");
+    const el = document.getElementById(id);
+    if (!el) return;
+    const headerH = (navRef.current?.offsetHeight || 72) + (isScrolled ? 12 : 0);
+    const y = el.getBoundingClientRect().top + window.scrollY - headerH;
+    window.scrollTo({ top: y, behavior: "smooth" });
+  };
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (href.startsWith("#")) {
+      e.preventDefault();
+      smoothTo(href);
+    }
+  };
+
   return (
-    <header
-      className={`fixed inset-x-0 top-0 z-50 transition-colors ${
-        isScrolled ? "bg-background/70 backdrop-blur border-b border-border" : "bg-transparent"
-      }`}
-    >
-      <nav
-        className="z-50 transition-all duration-500 bg-white shadow-soft"
-        aria-label="Primary"
+    <header className="fixed inset-x-0 top-0 z-50 pointer-events-none">
+      {/* Floating wrapper that morphs on scroll */}
+      <div
+        ref={navRef}
+        className={[
+          "mx-auto transition-all duration-300 pointer-events-auto",
+          "px-4",
+          isScrolled
+            ? "max-w-5xl mt-3 rounded-2xl bg-white/75 dark:bg-neutral-900/70 supports-[backdrop-filter]:backdrop-blur-xl ring-1 ring-black/5 shadow-[0_12px_32px_-12px_rgba(0,0,0,0.35)]"
+            : "max-w-none mt-0 rounded-none bg-transparent ring-0 shadow-none",
+        ].join(" ")}
       >
-        <div className="container mx-auto container-padding">
-          <div className="flex items-center justify-between h-20">
+        <nav className="container mx-auto">
+          <div className={["flex items-center justify-between", isScrolled ? "h-16" : "h-20"].join(" ")}>
             {/* Logo */}
-            <Link href="/" className="flex items-center group">
-              <Image src="/rehaablogo.png" alt="Logo" width={200} height={200} />
-              <span className="brand-name font-heading text-xl font-semibold gradient-text">
-                Rehaal
-              </span>
+            <Link href="/" className="flex items-center gap-2">
+              <Image src="/favicon.ico" alt="Logo" width={140} height={40} priority />
+              <span className="font-heading text-xl font-semibold gradient-text">Rehaal</span>
             </Link>
 
-            {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center space-x-8">
-              {/* {navItems.map((item) => {
-                const active = pathname === item.href;
-                return (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    className={`${
-                      active
-                        ? "text-primary font-semibold"
-                        : "text-foreground/80"
-                    } hover:text-primary font-medium transition-colors duration-300 relative group`}
-                    aria-current={active ? "page" : undefined}
-                  >
-                    {item.label}
-                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300" />
-                  </Link>
-                );
-              })} */}
-              <Button className="hover:opacity-90 transition-opacity shadow-soft cursor-pointer">
-                Book Now
-              </Button>
+            {/* Desktop nav */}
+            <div className="hidden md:flex items-center gap-6">
+              
+              <Button className="">Book Now</Button>
             </div>
 
-            {/* Mobile Menu Button */}
-            <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden p-2 text-foreground hover:text-primary transition-colors"
-              aria-label="Toggle menu"
-            >
-              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
+            {/* Mobile: only the Book Now button (no hamburger/menu) */}
+            <div className="md:hidden">
+              <Button className="">Book Now</Button>
+            </div>
           </div>
+        </nav>
 
-          {/* Mobile Menu */}
-          {isMobileMenuOpen && (
-            <div className="md:hidden pb-6 animate-fade-in bg-white">
-              <div className="flex flex-col space-y-4">
-                {navItems.map((item) => {
-                  const active = pathname === item.href;
-                  return (
-                    <Link
-                      key={item.href}
-                      href={item.href}
-                      onClick={() => setIsMobileMenuOpen(false)}
-                      className={`${
-                        active
-                          ? "text-primary font-semibold"
-                          : "text-foreground/80"
-                      } hover:text-primary font-medium transition-colors duration-300 py-2`}
-                      aria-current={active ? "page" : undefined}
-                    >
-                      {item.label}
-                    </Link>
-                  );
-                })}
-                <Button className="bg-gradient-gold hover:opacity-90 transition-opacity shadow-soft w-full">
-                  Book Now
-                </Button>
-              </div>
-            </div>
-          )}
-        </div>
-      </nav>
+        {/* Scroll progress accent (no window usage during render) */}
+        <div
+          className="h-0.5 w-full origin-left bg-gradient-to-r from-amber-400 via-yellow-500 to-orange-500 transition-transform"
+          style={{ transform: `scaleX(${scrollProgress})` }}
+        />
+      </div>
     </header>
   );
 }
