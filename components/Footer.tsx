@@ -23,9 +23,9 @@ export default function Footer() {
   };
 
   const social = [
-    { icon: Instagram, href: "https://www.instagram.com/rehaal.dk", label: "Instagram" },
-    { icon: Facebook, href: "https://www.facebook.com/rehaal.dk", label: "Facebook" },
-    { icon: Youtube, href: "https://www.youtube.com/@rehaalrejser", label: "YouTube" },
+    { icon: Instagram, href: "https://www.instagram.com/rehaab .dk", label: "Instagram" },
+    { icon: Facebook, href: "https://www.facebook.com/rehaab .dk", label: "Facebook" },
+    { icon: Youtube, href: "https://www.youtube.com/@rehaab rejser", label: "YouTube" },
   ];
 
   return (
@@ -49,7 +49,7 @@ export default function Footer() {
       <div className="pointer-events-none absolute left-1/2 top-0 h-[calc(100%-72px)] w-px -translate-x-1/2 bg-white/10" />
 
       {/* Main content */}
-      <section className="relative z-10 container mx-auto container-padding py-10 md:py-12">
+      <section className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Left: Brand + contact + social */}
           <div className="flex flex-col justify-between gap-6">
@@ -57,7 +57,7 @@ export default function Footer() {
               <div className="inline-flex items-center gap-3">
                 <span className="inline-block h-9 w-9 rounded-full bg-[color:var(--gold)]/90" />
                 <span className="font-heading text-3xl font-semibold tracking-wide">
-                  Rehaal Travel
+                  rehaab  Travel
                 </span>
               </div>
               <p className="mt-3 text-white/70 max-w-md">
@@ -82,8 +82,8 @@ export default function Footer() {
                 </li>
                 <li className="flex items-start gap-3">
                   <Mail className="mt-0.5 h-4 w-4 text-[color:var(--gold)]" />
-                  <a href="mailto:kontakt@rehaal.dk" className="hover:underline">
-                    kontakt@rehaal.dk
+                  <a href="mailto:kontakt@rehaab .dk" className="hover:underline">
+                    kontakt@rehaab .dk
                   </a>
                 </li>
               </ul>
@@ -163,12 +163,12 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="mt-8 ">
-          <div className="container mx-auto container-padding py-3 relative z-10 flex flex-col md:flex-row items-center justify-between gap-3 text-white/80">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-4 relative z-10 flex flex-col md:flex-row items-center justify-between gap-3 text-white/80">
             <p className="text-sm">
-              © {new Date().getFullYear()} Rehaal Travel. All rights reserved.
+              © {new Date().getFullYear()} rehaab  Travel. All rights reserved.
             </p>
             <p className="text-sm text-center">
-              {/* optional center text */} Rehaal Travel is committed to safe and ethical journeys.
+              {/* optional center text */} rehaab  Travel is committed to safe and ethical journeys.
             </p>
            
           </div>

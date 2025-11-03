@@ -49,7 +49,7 @@ const features: Feature[] = [
     icon: BookOpen,
     title: "Exclusive seminar",
     description:
-      "We will thoroughly prepare you before departure, with an exclusive Umrah seminar developed by Rehaal Travel, which will answer all your questions and get you ready for the trip of a lifetime.",
+      "We will thoroughly prepare you before departure, with an exclusive Umrah seminar developed by rehaab  Travel, which will answer all your questions and get you ready for the trip of a lifetime.",
     image:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTY9ugA6CWFksyJSPTBnP39Bm90pGXXLLwSYg&s",
   },

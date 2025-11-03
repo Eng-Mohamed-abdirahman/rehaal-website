@@ -63,7 +63,7 @@ export default function Navigation() {
             {/* Logo */}
             <Link href="/" className="flex items-center gap-2">
               <Image src="/favicon.ico" alt="Logo" width={140} height={40} priority />
-              <span className="font-heading text-xl font-semibold gradient-text">Rehaal</span>
+              <span className="font-heading text-xl font-semibold gradient-text">rehaab </span>
             </Link>
 
             {/* Desktop nav */}

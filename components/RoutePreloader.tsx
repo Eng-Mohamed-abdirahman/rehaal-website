@@ -58,7 +58,7 @@ export default function RoutePreloader({ minDuration = 2000 }: Props) {
       <div className="relative w-40 h-40 sm:w-52 sm:h-52 rounded-2xl overflow-hidden shadow-medium">
         <Image
           src="/rehaab.png"
-          alt="Rehaal loading"
+          alt="rehaab  loading"
           fill
           priority
           sizes="(max-width: 640px) 10rem, 13rem"

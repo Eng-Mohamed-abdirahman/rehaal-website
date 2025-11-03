@@ -15,22 +15,24 @@ const page = () => {
       <section>
         <Hero />
       </section>
-      <main className="">
-       
-        <section className="py-12 sm:py-16">
+      {/* vertical spacing between sections */}
+      <main className="space-y-16 sm:space-y-20">
+        <section className="container mx-auto px-4 sm:px-8 lg:px-10 py-12 sm:py-16">
           <About />
         </section>
-        <section className="py-12 sm:py-16">
+        <section className="container mx-auto px-4 sm:px-8 lg:px-10 py-12 sm:py-16">
           <WhyChooseUs />
         </section>
-        <section className="">
+        <section className="container mx-auto px-4 sm:px-8 lg:px-10 py-12 sm:py-16">
           <Testimonials />
         </section>
-        <section className="py-12 sm:py-16">
+        <section className="container mx-auto px-4 sm:px-8 lg:px-10 py-12 sm:py-16">
           <InstagramMarquee />
         </section>
       </main>
-      <FAQsThree />
+      <section className="container mx-auto px-4 sm:px-8 lg:px-10 py-12 sm:py-16">
+        <FAQsThree />
+      </section>
       <Footer />
     </div>
   );

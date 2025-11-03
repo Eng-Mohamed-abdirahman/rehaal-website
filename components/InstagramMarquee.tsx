@@ -16,7 +16,7 @@ const posts: Post[] = [
   {
     id: 1,
     image: "/m1.jpg",
-    title: "rehaal.dk",
+    title: "rehaab .dk",
     caption:
       "🤲Excerpt of Dua for Palestine, after Friday Prayer in Masjid Al-Haram, Friday, October 18, 2024 ",
     link: "https://www.instagram.com/reel/DBRGpDHN6WM",
@@ -24,7 +24,7 @@ const posts: Post[] = [
   {
     id: 2,
     image: "/m2.jpg",
-    title: "rehaal.dk",
+    title: "rehaab .dk",
     caption:
       "The Revelation Museum at Jabal Nour in Makkah is highly recommended. Here you follow the five most significant prophets, and finally how the Prophet ﷺ received the Quran.",
     link: "https://www.instagram.com/reel/DBOxJiTNfNq",
@@ -32,7 +32,7 @@ const posts: Post[] = [
   {
     id: 3,
     image: "/m3.jpg",
-    title: "rehaal.dk",
+    title: "rehaab .dk",
     caption:
       "🕋Umrah during the winter holidays🕌 📅 Date: 13-23 February 2025 We now have the pleasure of announcing another Umrah trip. This one will take place during the winter holidays, and immediately before Ramadan. So join us on what in shaa Allah will be a fantastic group trip, recharge your iman and get ready for Ramadan. 💰 Prices from 16,000: The price includes: 💡Exclusive seminar before departure ✈️Flight ticket (Turkish Airlines) 📄Visa 🚎VIP transport 🏨Luxury hotels within walking distance of Haram 🍳Breakfast buffet 🌄Seerah tour in both cities 💫Evening reminders 🇩🇰Experienced, Danish-speaking tour guides 16,000 in a 4-person room. 16,900 in a 3-person room. 17,500 in a 2-person room Register at the link in bio",
     link: "https://www.instagram.com/p/DBI54QbNlUo",
@@ -40,7 +40,7 @@ const posts: Post[] = [
   {
     id: 4,
     image: "/m4.jpg",
-    title: "rehaal.dk",
+    title: "rehaab .dk",
     caption:
       "Ibn Abbas narrated: The Messenger of Allah ﷺ said: “The best water on the face of the earth is Zamzam water. In it is food for sustenance and healing for illness.”",
     link: "https://www.instagram.com/reel/DCi-fCiuwio",
@@ -48,15 +48,15 @@ const posts: Post[] = [
   {
     id: 5,
     image: "/m5.jpg",
-    title: "rehaal.dk",
+    title: "rehaab .dk",
     caption:
-      "🕋 Umrah with Rehaal Travel - October 2024 #umrahindanish #umrah2024 #islamindanish #spiritualtravel #masjidalharam #masjidnabawi #makkah #MedinaMoments #umrahafter-years-holiday #rehaaltravel",
+      "🕋 Umrah with rehaab  Travel - October 2024 #umrahindanish #umrah2024 #islamindanish #spiritualtravel #masjidalharam #masjidnabawi #makkah #MedinaMoments #umrahafter-years-holiday #rehaab travel",
     link: "https://www.instagram.com/reel/DCRhYxpNVVr",
   },
   {
     id: 6,
     image: "/m6.jpg",
-    title: "rehaal.dk",
+    title: "rehaab .dk",
     caption: "The charm of Masjid Al-Haram",
     link: "https://www.instagram.com/reel/DBZX4F7NocD",
   },

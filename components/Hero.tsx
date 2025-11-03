@@ -56,7 +56,6 @@ const slides: Slide[] = [
 ];
 
 const SLIDE_SECONDS = 6;
-const ZOOM_SCALE = 1.12;
 
 export default function Hero() {
   const [index, setIndex] = useState(0);
@@ -75,7 +74,7 @@ export default function Hero() {
 
   return (
     <section className="relative w-full h-[85vh] md:h-screen overflow-hidden">
-      {/* Background with zoom + cross-fade */}
+      {/* Background with cross-fade (zoom removed) */}
       <AnimatePresence mode="wait">
         <motion.div
           key={`bg-${slide.id}`}
@@ -85,12 +84,8 @@ export default function Hero() {
           exit={{ opacity: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <motion.div
-            className="absolute inset-0"
-            initial={{ scale: 1 }}
-            animate={{ scale: ZOOM_SCALE }}
-            transition={{ duration: SLIDE_SECONDS, ease: "linear" }}
-          >
+          {/* Removed zoom motion wrapper */}
+          <div className="absolute inset-0">
             <Image
               src={slide.image}
               alt={slide.title}
@@ -99,7 +94,7 @@ export default function Hero() {
               sizes="100vw"
               className="object-cover"
             />
-          </motion.div>
+          </div>
           <div className="absolute inset-0 bg-gradient-to-b from-black/25 via-black/35 to-black/65" />
         </motion.div>
       </AnimatePresence>
