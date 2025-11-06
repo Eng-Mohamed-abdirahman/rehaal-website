@@ -3,6 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Suspense } from "react";
 import RoutePreloader from "../components/RoutePreloader";
+import Footer from "@/components/Footer";
+import Navigation from "@/components/Navigation";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,7 +32,14 @@ export default function RootLayout({
         <Suspense fallback={null}>
           <RoutePreloader minDuration={2000} />
         </Suspense>
+        <div>
+          <Navigation />
+        </div>
         {children}
+        <div className="mt-20">
+          <Footer />
+        </div>
+
       </body>
     </html>
   );

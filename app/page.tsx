@@ -11,7 +11,7 @@ import React from "react";
 const page = () => {
   return (
     <div className="min-h-screen ">
-      <Navigation />
+     
       <section>
         <Hero />
       </section>
@@ -33,7 +33,7 @@ const page = () => {
       <section className="container mx-auto px-4 sm:px-8 lg:px-10 py-12 sm:py-16">
         <FAQsThree />
       </section>
-      <Footer />
+     
     </div>
   );
 };
