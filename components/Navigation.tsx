@@ -67,7 +67,16 @@ export default function Navigation() {
             </Link>
 
             {/* Desktop nav */}
-            <div className="hidden md:flex items-center gap-6">
+            <div className="hidden md:flex items-center gap-6 ">
+              <Link href="/services" className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors">
+                Services
+              </Link>
+              <Link href="/packages" className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors">
+                Packages
+              </Link>
+              <Link href="/about" className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors">
+                About
+              </Link>
               
               <Button className="">Book Now</Button>
             </div>
