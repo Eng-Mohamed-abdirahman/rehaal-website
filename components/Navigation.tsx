@@ -29,21 +29,21 @@ export default function Navigation() {
     };
   }, []);
 
-  const smoothTo = (hash: string) => {
-    const id = hash.replace(/^#/, "");
-    const el = document.getElementById(id);
-    if (!el) return;
-    const headerH = (navRef.current?.offsetHeight || 72) + (isScrolled ? 12 : 0);
-    const y = el.getBoundingClientRect().top + window.scrollY - headerH;
-    window.scrollTo({ top: y, behavior: "smooth" });
-  };
+  // const smoothTo = (hash: string) => {
+  //   const id = hash.replace(/^#/, "");
+  //   const el = document.getElementById(id);
+  //   if (!el) return;
+  //   const headerH = (navRef.current?.offsetHeight || 72) + (isScrolled ? 12 : 0);
+  //   const y = el.getBoundingClientRect().top + window.scrollY - headerH;
+  //   window.scrollTo({ top: y, behavior: "smooth" });
+  // };
 
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    if (href.startsWith("#")) {
-      e.preventDefault();
-      smoothTo(href);
-    }
-  };
+  // const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+  //   if (href.startsWith("#")) {
+  //     e.preventDefault();
+  //     smoothTo(href);
+  //   }
+  // };
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 pointer-events-none">
@@ -67,14 +67,29 @@ export default function Navigation() {
             </Link>
 
             {/* Desktop nav */}
-            <div className="hidden md:flex items-center gap-6 ">
-              <Link href="/services" className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors">
+            <div className="hidden md:flex items-center gap-6">
+              <Link
+                href="/services"
+                className={`text-sm font-medium transition-colors ${
+                  isScrolled ? "text-black hover:text-foreground" : "text-white hover:text-foreground"
+                }`}
+              >
                 Services
               </Link>
-              <Link href="/packages" className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors">
+              <Link
+                href="/packages"
+                className={`text-sm font-medium transition-colors ${
+                  isScrolled ? "text-black hover:text-foreground" : "text-white hover:text-foreground"
+                }`}
+              >
                 Packages
               </Link>
-              <Link href="/about" className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors">
+              <Link
+                href="/about"
+                className={`text-sm font-medium transition-colors ${
+                  isScrolled ? "text-black hover:text-foreground" : "text-white hover:text-foreground"
+                }`}
+              >
                 About
               </Link>
               

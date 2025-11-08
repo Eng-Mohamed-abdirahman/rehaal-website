@@ -1,6 +1,6 @@
-import * as React from "react";
 import Image from "next/image";
-import { FadeIn, Stagger, MotionItem } from "../../components/motion-reveal";
+import * as React from "react";
+import { FadeIn, MotionItem, Stagger } from "../../components/motion-reveal";
 
 export const metadata = {
   title: "Our Services | Umrah Travels",
@@ -139,21 +139,21 @@ function IconHotel() {
     </svg>
   );
 }
-function IconShield() {
-  return (
-    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" className="text-black">
-      <path d="M12 22s9-4 9-11V6l-9-4-9 4v5c0 7 9 11 9 11Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-    </svg>
-  );
-}
-function IconHeadset() {
-  return (
-    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" className="text-black">
-      <path d="M4 13v-2a8 8 0 1 1 16 0v2M4 13a2 2 0 0 0 2 2h2v-4H6a2 2 0 0 0-2 2Zm16 0a2 2 0 0 1-2 2h-2v-4h2a2 2 0 0 1 2 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-      <path d="M12 17v4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-    </svg>
-  );
-}
+// function IconShield() {
+//   return (
+//     <svg width="26" height="26" viewBox="0 0 24 24" fill="none" className="text-black">
+//       <path d="M12 22s9-4 9-11V6l-9-4-9 4v5c0 7 9 11 9 11Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+//     </svg>
+//   );
+// }
+// function IconHeadset() {
+//   return (
+//     <svg width="26" height="26" viewBox="0 0 24 24" fill="none" className="text-black">
+//       <path d="M4 13v-2a8 8 0 1 1 16 0v2M4 13a2 2 0 0 0 2 2h2v-4H6a2 2 0 0 0-2 2Zm16 0a2 2 0 0 1-2 2h-2v-4h2a2 2 0 0 1 2 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+//       <path d="M12 17v4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+//     </svg>
+//   );
+// }
 
 /* Data */
 const services = [

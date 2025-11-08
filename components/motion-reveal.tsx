@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { motion, MotionProps } from "framer-motion";
+import { motion, MotionProps, easeOut } from "framer-motion"; // <-- import easeOut
 
 type RevealProps = {
   children: React.ReactNode;
@@ -66,7 +66,14 @@ export function Stagger({
 
 export const itemVariant = {
   hidden: { opacity: 0, y: 12 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: "easeOut" } },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.55,
+      ease: easeOut, // <-- use imported easing function
+    },
+  },
 };
 
 export function MotionItem({
@@ -77,7 +84,7 @@ export function MotionItem({
 }: {
   children: React.ReactNode;
   className?: string;
-  variants?: any;
+  variants?: typeof itemVariant | MotionProps["variants"];
 } & Omit<MotionProps, "initial" | "animate" | "whileInView" | "viewport">) {
   return (
     <motion.div variants={variants} className={className} {...rest}>

@@ -285,9 +285,9 @@ export default function AboutPage() {
 
 /* ---------- Icons ---------- */
 
-function IconLine() {
-  return <span className="block h-1 w-12 rounded-full bg-[color:var(--gold)]" />;
-}
+// function IconLine() {
+//   return <span className="block h-1 w-12 rounded-full bg-[color:var(--gold)]" />;
+// }
 function IconPeople() {
   return (
     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" className="text-foreground">
@@ -461,19 +461,19 @@ const values = [
   },
 ] as const;
 
-const mission = {
-  title: "Our mission",
-  desc:
-    "To facilitate meaningful spiritual journeys to the Holy Lands by providing comprehensive, high-quality services that combine Islamic knowledge, cultural understanding and modern travel expertise.",
-  Icon: IconRibbon,
-};
+// const mission = {
+//   title: "Our mission",
+//   desc:
+//     "To facilitate meaningful spiritual journeys to the Holy Lands by providing comprehensive, high-quality services that combine Islamic knowledge, cultural understanding and modern travel expertise.",
+//   Icon: IconRibbon,
+// };
 
-const vision = {
-  title: "Our vision",
-  desc:
-    "To be the most trusted and premium provider of Islamic pilgrimage experiences in Europe, making spiritual journeys accessible, educational and deeply enriching for all Muslims.",
-  Icon: IconStar,
-};
+// const vision = {
+//   title: "Our vision",
+//   desc:
+//     "To be the most trusted and premium provider of Islamic pilgrimage experiences in Europe, making spiritual journeys accessible, educational and deeply enriching for all Muslims.",
+//   Icon: IconStar,
+// };
 
 function GoldIcon({
   children,

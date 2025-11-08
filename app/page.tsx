@@ -1,12 +1,9 @@
 import About from "@/components/About";
 import FAQsThree from "@/components/faqs-3";
-import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import InstagramMarquee from "@/components/InstagramMarquee";
-import Navigation from "@/components/Navigation";
 import Testimonials from "@/components/Testimonials";
 import WhyChooseUs from "@/components/whyChooseUs";
-import React from "react";
 
 const page = () => {
   return (
