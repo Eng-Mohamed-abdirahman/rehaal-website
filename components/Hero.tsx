@@ -59,6 +59,12 @@ const SLIDE_SECONDS = 6;
 
 export default function Hero() {
   const [index, setIndex] = useState(0);
+  // Preload next image ahead of fade
+  useEffect(() => {
+    const nextIndex = (index + 1) % slides.length;
+    const preload = new window.Image();
+    preload.src = slides[nextIndex].image.src;
+  }, [index]);
 
   const next = () => setIndex((i) => (i + 1) % slides.length);
   const prev = () => setIndex((i) => (i - 1 + slides.length) % slides.length);
@@ -74,32 +80,27 @@ export default function Hero() {
 
   return (
     <section className="relative w-full h-[85vh] md:h-screen overflow-hidden">
-      {/* Background with cross-fade (zoom removed) */}
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={`bg-${slide.id}`}
-          className="absolute inset-0"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          {/* Removed zoom motion wrapper */}
-          <div className="absolute inset-0">
+      {/* Background cross-fade WITHOUT unmount gap */}
+      <div className="absolute inset-0">
+        <div className="absolute inset-0">
+          {slides.map((s, i) => (
             <Image
-              src={slide.image}
-              alt={slide.title}
+              key={s.id}
+              src={s.image}
+              alt={s.title}
               fill
-              priority={index === 0}
               sizes="100vw"
-              className="object-cover"
+              priority={i === 0}
+              fetchPriority={i === index || i === (index + 1) % slides.length ? "high" : "auto"}
+              placeholder="blur"
+              className="object-cover transition-opacity duration-700"
+              style={{ opacity: i === index ? 1 : 0 }}
             />
-          </div>
-          <div className="absolute inset-0 bg-gradient-to-b from-black/25 via-black/35 to-black/65" />
-        </motion.div>
-      </AnimatePresence>
-
-      {/* Content */}
+          ))}
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/25 via-black/35 to-black/65 pointer-events-none" />
+      </div>
+      {/* Content (keep AnimatePresence if desired) */}
       <div className="relative z-10 h-full w-full flex items-center justify-center px-4">
         <AnimatePresence mode="wait">
           <motion.div

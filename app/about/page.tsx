@@ -16,7 +16,7 @@ export default function AboutPage() {
         {/* BG image + overlays */}
         <div className="absolute inset-0 -z-10">
           <Image
-            src={"/download.jpeg"}
+            src={"/about.png"}
             alt="Umrah architecture background"
             fill
             priority
