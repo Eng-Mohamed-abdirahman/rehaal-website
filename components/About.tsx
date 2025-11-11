@@ -1,6 +1,8 @@
 "use client";
 import { Sparkles } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
+import { packages } from "../app/data/packages"; // map cards to package ids
 
 // Simple reveal-on-scroll hook
 function useInView<T extends HTMLElement = HTMLElement>(options?: IntersectionObserverInit) {
@@ -100,46 +102,53 @@ const About = () => {
               "motion-reduce:transition-none motion-reduce:transform-none",
             ].join(" ")}
           >
-            {features.map((feature, index) => (
-              <div
-                key={index}
-                className={[
-                  "group relative rounded-xl overflow-hidden border border-border cursor-pointer",
-                  "transition-all duration-700 ease-out will-change-transform",
-                  gridInView ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-4 scale-[0.98]",
-                  "hover:shadow-xl hover:-translate-y-0.5",
-                ].join(" ")}
-                style={{
-                  animationDelay: `${index * 0.12}s`,
-                  transitionDelay: gridInView ? `${index * 120}ms` : "0ms",
-                  minHeight: 180,
-                }}
-              >
-                {/* background image (cover) */}
-                <div
-                  className="absolute inset-0 bg-cover bg-center will-change-transform transition-transform duration-500 ease-out group-hover:scale-110 origin-center"
-                  style={{ backgroundImage: `url(${feature.image})` }}
-                  aria-hidden
-                />
+            {features.map((feature, index) => {
+              const pkg = packages[index];
+              const href = pkg ? `/packages/${pkg.id}` : "/packages";
+              const label = pkg ? `Open details for ${pkg.title}` : "Open packages";
 
-                {/* dark overlay */}
-                <div
-                  className="absolute inset-0 bg-black/40 transition-colors duration-300 group-hover:bg-black/50"
-                  aria-hidden
-                />
+              return (
+                <Link key={index} href={href} aria-label={label} className="group block">
+                  <div
+                    className={[
+                      "relative rounded-xl overflow-hidden border border-border",
+                      "transition-all duration-700 ease-out will-change-transform",
+                      gridInView ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-4 scale-[0.98]",
+                      "hover:shadow-xl hover:-translate-y-0.5",
+                    ].join(" ")}
+                    style={{
+                      animationDelay: `${index * 0.12}s`,
+                      transitionDelay: gridInView ? `${index * 120}ms` : "0ms",
+                      minHeight: 180,
+                    }}
+                  >
+                    {/* background image (cover) */}
+                    <div
+                      className="absolute inset-0 bg-cover bg-center will-change-transform transition-transform duration-500 ease-out group-hover:scale-110 origin-center"
+                      style={{ backgroundImage: `url(${feature.image})` }}
+                      aria-hidden
+                    />
 
-                {/* content on top */}
-                <div className="relative p-6 h-full flex flex-col justify-end">
-                  <h3 className="font-heading text-xl font-semibold text-white mb-2 drop-shadow">
-                    {feature.title}
-                  </h3>
+                    {/* dark overlay */}
+                    <div
+                      className="absolute inset-0 bg-black/40 transition-colors duration-300 group-hover:bg-black/50"
+                      aria-hidden
+                    />
 
-                  <p className="text-sm bg-gray-800 text-white/90 border border-gray-700 px-3 py-1 rounded-md w-max drop-shadow">
-                    {feature.description}
-                  </p>
-                </div>
-              </div>
-            ))}
+                    {/* content on top */}
+                    <div className="relative p-6 h-full flex flex-col justify-end">
+                      <h3 className="font-heading text-xl font-semibold text-white mb-2 drop-shadow">
+                        {feature.title}
+                      </h3>
+
+                      <p className="text-sm bg-gray-800 text-white/90 border border-gray-700 px-3 py-1 rounded-md w-max drop-shadow">
+                        {feature.description}
+                      </p>
+                    </div>
+                  </div>
+                </Link>
+              );
+            })}
           </div>
         </div>
       </div>

@@ -96,7 +96,7 @@ function PackageCard({ p }: { p: Package }) {
 
         <div className="mt-2 flex flex-col sm:flex-row gap-3">
           <Link
-            href={`/booking/${p.id}`}
+            href={`/packages/${p.id}`}
             className="w-full sm:w-auto px-6 py-2.5 rounded-lg bg-neutral-900 text-white text-sm font-medium hover:bg-neutral-800 transition text-center"
           >
             See details

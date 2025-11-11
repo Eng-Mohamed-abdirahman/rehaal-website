@@ -71,7 +71,7 @@ export default function Navigation() {
               <Link
                 href="/services"
                 className={`text-sm font-medium transition-colors ${
-                  isScrolled ? "text-black hover:text-foreground" : "text-white hover:text-foreground"
+                  isScrolled ? "text-black hover:text-foreground" : "text-black hover:text-foreground"
                 }`}
               >
                 Services
@@ -79,7 +79,7 @@ export default function Navigation() {
               <Link
                 href="/packages"
                 className={`text-sm font-medium transition-colors ${
-                  isScrolled ? "text-black hover:text-foreground" : "text-white hover:text-foreground"
+                  isScrolled ? "text-black hover:text-foreground" : "text-black hover:text-foreground"
                 }`}
               >
                 Packages
@@ -87,7 +87,7 @@ export default function Navigation() {
               <Link
                 href="/about"
                 className={`text-sm font-medium transition-colors ${
-                  isScrolled ? "text-black hover:text-foreground" : "text-white hover:text-foreground"
+                  isScrolled ? "text-black hover:text-foreground" : "text-black hover:text-foreground"
                 }`}
               >
                 About
@@ -95,18 +95,32 @@ export default function Navigation() {
               <Link
                 href="/contact"
                 className={`text-sm font-medium transition-colors ${
-                  isScrolled ? "text-black hover:text-foreground" : "text-white hover:text-foreground"
+                  isScrolled ? "text-black hover:text-foreground" : "text-black hover:text-foreground"
                 }`}
               >
                 Contact
               </Link>
               
-              <Button className="">Book Now</Button>
+             <Link href="/packages">
+                <Button
+                  variant={isScrolled ? "default" : "secondary"}
+                  className="bg-[color:var(--gold)] hover:bg-[color:var(--gold-dark)] text-white whitespace-nowrap"
+                >
+                  Book Now
+                </Button>
+              </Link>
             </div>
 
             {/* Mobile: only the Book Now button (no hamburger/menu) */}
             <div className="md:hidden">
-              <Button className="">Book Now</Button>
+              <Link href="/booking">
+                <Button
+                  variant={isScrolled ? "default" : "secondary"}
+                  className="whitespace-nowrap"
+                >
+                  Book Now
+                </Button>
+              </Link>
             </div>
           </div>
         </nav>
