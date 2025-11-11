@@ -111,22 +111,22 @@ export default function Footer() {
               <h4 className="font-semibold mb-3 text-white">Company</h4>
               <ul className="space-y-2 text-white/80">
                 <li>
-                  <Link href="#about" className="hover:text-white">
+                  <Link href="about" className="hover:text-white">
                     About us
                   </Link>
                 </li>
                 <li>
-                  <Link href="#why-choose-us" className="hover:text-white">
+                  <Link href="why-choose-us" className="hover:text-white">
                     Why choose us
                   </Link>
                 </li>
                 <li>
-                  <Link href="#testimonials" className="hover:text-white">
+                  <Link href="testimonials" className="hover:text-white">
                     Testimonials
                   </Link>
                 </li>
                 <li>
-                  <Link href="#faqs" className="hover:text-white">
+                  <Link href="faqs" className="hover:text-white">
                     FAQs
                   </Link>
                 </li>

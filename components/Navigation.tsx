@@ -92,6 +92,14 @@ export default function Navigation() {
               >
                 About
               </Link>
+              <Link
+                href="/contact"
+                className={`text-sm font-medium transition-colors ${
+                  isScrolled ? "text-black hover:text-foreground" : "text-white hover:text-foreground"
+                }`}
+              >
+                Contact
+              </Link>
               
               <Button className="">Book Now</Button>
             </div>

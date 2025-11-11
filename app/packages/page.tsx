@@ -1,48 +1,12 @@
 import * as React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
+import { packages, type Package } from '../data/packages';
 
 export const metadata = {
   title: 'Umrah Packages | Rehaal',
   description: 'Browse current Umrah packages tailored for different needs.',
 };
-
-type Package = {
-  id: number;
-  title: string;
-  subtitle: string;
-  destination: string;
-  dates: string;
-  duration: string;
-  slotsLeft: number;
-  priceFrom: number;
-  image: string;
-};
-
-const packages: Package[] = [
-  {
-    id: 1,
-    title: 'December Trip',
-    subtitle: 'A special year‑end Umrah package featuring balanced schedules, guided spiritual sessions, and seamless travel support for families and individuals.',
-    destination: 'Mecca & Medina, Saudi Arabia',
-    dates: 'December 10, 2025 – December 21, 2025',
-    duration: '12 days',
-    slotsLeft: 8,
-    priceFrom: 1890,
-    image: '/u1.jpeg',
-  },
-  {
-    id: 2,
-    title: 'February Trip',
-    subtitle: 'A perfect winter Umrah package offering affordable prices, group guidance, and seamless travel arrangements for a peaceful pilgrimage.',
-    destination: 'Mecca & Medina, Saudi Arabia',
-    dates: 'October 30, 2025 – February 12, 2026',
-    duration: '9 days',
-    slotsLeft: 14,
-    priceFrom: 1490,
-    image: '/u2.jpg',
-  },
-  
-];
 
 export default function PackagesPage() {
   return (
@@ -74,8 +38,8 @@ function PackageCard({ p }: { p: Package }) {
                  hover:shadow-[0_12px_40px_-10px_rgba(0,0,0,0.20),0_18px_50px_-12px_rgba(217,156,29,0.20)]
                  transition-shadow duration-300"
     >
-      {/* Shorter image height */}
-      <div className="relative h-[260px]">
+      {/* Clickable image area -> booking page */}
+      <Link href={`/booking/${p.id}`} className="relative block h-[260px]" aria-label={`Open booking for ${p.title}`}>
         <Image
           src={p.image}
           alt={p.title}
@@ -98,7 +62,7 @@ function PackageCard({ p }: { p: Package }) {
           </div>
         </div>
         <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/15 to-black/40 pointer-events-none" />
-      </div>
+      </Link>
 
       {/* Tighter content */}
       <div className="p-6 flex flex-col gap-4">
@@ -131,15 +95,19 @@ function PackageCard({ p }: { p: Package }) {
         </div>
 
         <div className="mt-2 flex flex-col sm:flex-row gap-3">
-          <button className="w-full sm:w-auto px-6 py-2.5 rounded-lg bg-neutral-900 text-white text-sm font-medium hover:bg-neutral-800 transition">
+          <Link
+            href={`/booking/${p.id}`}
+            className="w-full sm:w-auto px-6 py-2.5 rounded-lg bg-neutral-900 text-white text-sm font-medium hover:bg-neutral-800 transition text-center"
+          >
             See details
-          </button>
-          <button
-            className="w-full sm:w-auto px-6 py-2.5 rounded-lg text-sm font-semibold shadow-md transition"
+          </Link>
+          <Link
+            href={`/booking/${p.id}`}
+            className="w-full sm:w-auto px-6 py-2.5 rounded-lg text-sm font-semibold shadow-md transition text-center"
             style={{ backgroundColor: "var(--gold)", color: "#000" }}
           >
             Book now
-          </button>
+          </Link>
         </div>
       </div>
     </div>
